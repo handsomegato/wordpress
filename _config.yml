@@ -1,0 +1,41 @@
+title: "Handsome Gato Foundation"
+description: "WordPress Development & Digital Marketing Excellence"
+url: "https://handsomegato.github.io"
+baseurl: "/wordpress"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Exclude from processing
+exclude:
+  - wp-content/
+  - .gitignore
+  - README.md
+
+# Include specific files
+include:
+  - _pages
+  - index.html
+
+# Collections
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:name/
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# SEO
+author: "Handsome Gato"
+twitter:
+  username: handsomegato
+social:
+  name: Handsome Gato
+  links:
+    - https://github.com/handsomegato
