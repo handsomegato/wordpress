@@ -66,3 +66,7 @@ wp-includes/
 /wp-signup.php
 /wp-trackback.php
 /xmlrpc.php
+
+# Additional WordPress-specific ignores for automation
+wp-content/plugins/backuply/backups/
+wp-content/plugins/zero-bs-crm/logs/
