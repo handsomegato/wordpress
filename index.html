@@ -34,11 +34,88 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
         }
+
+        /* Navigation Styles */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: #667eea;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            margin-top: 80px; /* Account for fixed navbar */
         }
         
         .header {
@@ -162,6 +239,39 @@
         }
         
         @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 20px 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .mobile-menu-toggle.active span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
             .header h1 {
                 font-size: 2rem;
             }
@@ -173,6 +283,27 @@
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">🐱 Handsome Gato</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://github.com/handsomegato/wordpress" target="_blank">GitHub</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <header class="header">
             <h1>🐱 Handsome Gato Foundation</h1>
@@ -252,8 +383,10 @@
 
             <div class="cta">
                 <a href="https://github.com/handsomegato/wordpress" class="btn">🐙 View Repository</a>
-                <a href="./HANDSOME_GATO_FOUNDATION_PROJECT_PLAN.md" class="btn btn-secondary">📋 Project Plan</a>
-                <a href="./EXECUTIVE_SUMMARY.md" class="btn btn-secondary">📊 Executive Summary</a>
+                <a href="./services.html" class="btn">💼 Our Services</a>
+                <a href="./portfolio.html" class="btn">🎯 Portfolio</a>
+                <a href="./pricing.html" class="btn btn-secondary">� Pricing</a>
+                <a href="./contact.html" class="btn btn-secondary">� Contact Us</a>
             </div>
         </div>
 
@@ -262,5 +395,42 @@
             <p>🚀 Ready to scale your business with professional WordPress solutions</p>
         </footer>
     </div>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    mobileToggle.classList.toggle('active');
+                });
+            }
+
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    mobileToggle.classList.remove('active');
+                });
+            });
+
+            // Animate stats on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.transform = 'translateY(0)';
+                        entry.target.style.opacity = '1';
+                    }
+                });
+            });
+
+            document.querySelectorAll('.stat-card, .feature').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>

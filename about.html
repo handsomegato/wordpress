@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Handsome Gato Foundation</title>
+    <meta name="description" content="Learn about Handsome Gato Foundation's mission, team, and approach to WordPress development and digital marketing excellence.">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Include the same navigation styles */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: #667eea;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after, .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            margin-top: 100px;
+        }
+
+        .page-header {
+            text-align: center;
+            color: white;
+            padding: 40px 0;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .content {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+        }
+
+        .timeline-item {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+
+        .timeline-item h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">🐱 Handsome Gato</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://github.com/handsomegato/wordpress" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="page-header">
+            <h1>About Handsome Gato Foundation</h1>
+            <p>Building digital foundations for sustainable business growth</p>
+        </header>
+
+        <div class="content">
+            <h2>🎯 Our Mission</h2>
+            <p>At Handsome Gato Foundation, we specialize in creating comprehensive digital foundations that drive sustainable business growth. Our expertise lies in WordPress development, digital marketing, and strategic business solutions that help our clients achieve their ambitious revenue goals.</p>
+
+            <h3>🚀 Our Approach</h3>
+            <p>We believe in building more than just websites – we create digital ecosystems that serve as the foundation for long-term business success. Our comprehensive approach combines cutting-edge technology with proven business strategies.</p>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <h4>🎨 Creative Excellence</h4>
+                    <p>Our design philosophy focuses on creating visually stunning, user-friendly experiences that convert visitors into customers.</p>
+                </div>
+                <div class="team-member">
+                    <h4>⚡ Performance Optimization</h4>
+                    <p>We prioritize speed, security, and scalability in every project, ensuring your site performs at its best.</p>
+                </div>
+                <div class="team-member">
+                    <h4>📈 Business Growth</h4>
+                    <p>Every solution we create is designed with your revenue goals in mind, helping you achieve sustainable growth.</p>
+                </div>
+            </div>
+
+            <h3>📊 Our Track Record</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Revenue Target Achievement</h4>
+                    <p><strong>$100K-$180K Year 1:</strong> Our comprehensive business model is designed to achieve significant revenue growth through multiple streams including service-based work (60%), product sales (25%), subscriptions (10%), and training/education (5%).</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Client Success Focus</h4>
+                    <p><strong>15-25 Active Clients:</strong> We maintain a focused client base to ensure quality service delivery and strong relationships that drive long-term success.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Technology Excellence</h4>
+                    <p><strong>Premium Tools & Plugins:</strong> We utilize industry-leading tools including Pagelayer Pro, SiteSEO Pro, SpeedyCache Pro, and Zero BS CRM to deliver exceptional results.</p>
+                </div>
+            </div>
+
+            <h3>💡 Why Choose Handsome Gato?</h3>
+            <ul style="margin: 20px 0; padding-left: 20px;">
+                <li><strong>Proven Methodology:</strong> Our systematic approach to digital foundation building</li>
+                <li><strong>Revenue-Focused:</strong> Every decision is made with your business growth in mind</li>
+                <li><strong>Technology Leadership:</strong> We stay ahead of WordPress and digital marketing trends</li>
+                <li><strong>Comprehensive Solutions:</strong> From design to marketing to ongoing support</li>
+                <li><strong>Transparent Pricing:</strong> Clear, competitive pricing with no hidden costs</li>
+            </ul>
+
+            <div style="background: #e8f5e8; padding: 20px; border-radius: 10px; margin: 30px 0; border-left: 5px solid #28a745;">
+                <h4 style="color: #155724; margin-bottom: 10px;">🎉 Ready to Build Your Foundation?</h4>
+                <p style="color: #155724; margin: 0;">Let's discuss how we can help you achieve your business goals with a solid digital foundation. Contact us today to get started on your journey to sustainable growth.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

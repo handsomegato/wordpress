@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Handsome Gato Foundation</title>
+    <meta name="description" content="Transparent pricing for WordPress development, digital marketing, and business growth services.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: #667eea;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after, .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            margin-top: 100px;
+        }
+
+        .page-header {
+            text-align: center;
+            color: white;
+            padding: 40px 0;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .content {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: #667eea;
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
+        }
+
+        .pricing-card.featured {
+            border-color: #28a745;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: '⭐ MOST POPULAR';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #28a745;
+            color: white;
+            padding: 8px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .pricing-card.featured .price {
+            color: #28a745;
+        }
+
+        .pricing-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+
+        .pricing-card.featured h3 {
+            margin-top: 40px;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin: 20px 0;
+        }
+
+        .price-note {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 20px;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .features-list li::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+        }
+
+        .cta-button {
+            background: #667eea;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .cta-button:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+
+        .pricing-card.featured .cta-button {
+            background: #28a745;
+        }
+
+        .pricing-card.featured .cta-button:hover {
+            background: #218838;
+        }
+
+        .revenue-model {
+            background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            border-left: 5px solid #28a745;
+        }
+
+        .revenue-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .revenue-item {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .revenue-item .percentage {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 5px;
+        }
+
+        .revenue-item .amount {
+            font-size: 1.2rem;
+            color: #155724;
+            font-weight: bold;
+        }
+
+        .guarantee-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .guarantee-box h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .guarantee-box p {
+            color: #856404;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">🐱 Handsome Gato</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="pricing.html" class="active">Pricing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://github.com/handsomegato/wordpress" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="page-header">
+            <h1>Transparent Pricing</h1>
+            <p>Clear, competitive pricing designed to help you achieve your revenue goals</p>
+        </header>
+
+        <div class="content">
+            <h2>💰 Investment Packages</h2>
+            <p>Our pricing is structured to deliver maximum ROI and support your journey to $100K-$180K in Year 1 revenue. Choose the package that best fits your current needs and growth objectives.</p>
+
+            <div class="revenue-model">
+                <h3>📊 Our Revenue Model - Your Success Blueprint</h3>
+                <div class="revenue-grid">
+                    <div class="revenue-item">
+                        <div class="percentage">60%</div>
+                        <div class="amount">$60K-$108K</div>
+                        <p><strong>Service-Based Revenue</strong><br>Custom development & consulting</p>
+                    </div>
+                    <div class="revenue-item">
+                        <div class="percentage">25%</div>
+                        <div class="amount">$25K-$45K</div>
+                        <p><strong>Product Sales</strong><br>Digital products & solutions</p>
+                    </div>
+                    <div class="revenue-item">
+                        <div class="percentage">10%</div>
+                        <div class="amount">$10K-$18K</div>
+                        <p><strong>Subscriptions</strong><br>Recurring maintenance & support</p>
+                    </div>
+                    <div class="revenue-item">
+                        <div class="percentage">5%</div>
+                        <div class="amount">$5K-$9K</div>
+                        <p><strong>Training/Education</strong><br>Courses & workshops</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>🚀 Starter Foundation</h3>
+                    <div class="price">$3,000</div>
+                    <div class="price-note">Perfect for small businesses</div>
+                    <ul class="features-list">
+                        <li>Custom WordPress website</li>
+                        <li>PopularFX theme setup</li>
+                        <li>Basic SEO optimization</li>
+                        <li>Mobile responsive design</li>
+                        <li>Contact forms & basic plugins</li>
+                        <li>2 weeks development time</li>
+                        <li>Basic training session</li>
+                        <li>30 days support</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button">Get Started</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <h3>💼 Business Growth</h3>
+                    <div class="price">$8,000</div>
+                    <div class="price-note">Most popular choice</div>
+                    <ul class="features-list">
+                        <li>Everything in Starter</li>
+                        <li>Pagelayer Pro implementation</li>
+                        <li>SiteSEO Pro optimization</li>
+                        <li>SpeedyCache Pro setup</li>
+                        <li>Loginizer Security</li>
+                        <li>Zero BS CRM integration</li>
+                        <li>E-commerce ready (WooCommerce)</li>
+                        <li>4 weeks development</li>
+                        <li>Advanced training (4 hours)</li>
+                        <li>90 days premium support</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button">Choose Business</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>🏢 Enterprise Foundation</h3>
+                    <div class="price">$15,000</div>
+                    <div class="price-note">Complete digital ecosystem</div>
+                    <ul class="features-list">
+                        <li>Everything in Business</li>
+                        <li>Custom plugin development</li>
+                        <li>Advanced CRM workflows</li>
+                        <li>Multi-site management</li>
+                        <li>API integrations</li>
+                        <li>Advanced security features</li>
+                        <li>Performance monitoring</li>
+                        <li>8 weeks development</li>
+                        <li>Team training (8 hours)</li>
+                        <li>6 months premium support</li>
+                        <li>Monthly strategy calls</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button">Go Enterprise</a>
+                </div>
+            </div>
+
+            <h3>🔄 Ongoing Services</h3>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>🛡️ Security & Maintenance</h3>
+                    <div class="price">$300</div>
+                    <div class="price-note">per month</div>
+                    <ul class="features-list">
+                        <li>Daily security monitoring</li>
+                        <li>Weekly backups (Backuply Pro)</li>
+                        <li>Plugin & theme updates</li>
+                        <li>Performance monitoring</li>
+                        <li>Monthly reports</li>
+                        <li>Priority email support</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button">Subscribe</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>📈 Growth Marketing</h3>
+                    <div class="price">$2,000</div>
+                    <div class="price-note">per month</div>
+                    <ul class="features-list">
+                        <li>SEO optimization & monitoring</li>
+                        <li>Content marketing strategy</li>
+                        <li>Social media management</li>
+                        <li>Email marketing campaigns</li>
+                        <li>Conversion optimization</li>
+                        <li>Monthly strategy meetings</li>
+                        <li>Detailed analytics reports</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button">Grow Now</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>🎓 Training & Consulting</h3>
+                    <div class="price">$200</div>
+                    <div class="price-note">per hour</div>
+                    <ul class="features-list">
+                        <li>WordPress administration</li>
+                        <li>Content management training</li>
+                        <li>SEO best practices</li>
+                        <li>Digital strategy consulting</li>
+                        <li>Technical documentation</li>
+                        <li>Custom workshops</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button">Book Session</a>
+                </div>
+            </div>
+
+            <div class="guarantee-box">
+                <h4>🎯 Revenue Growth Guarantee</h4>
+                <p>We're so confident in our methodology that we guarantee measurable improvements in your digital presence within 90 days, or we'll work with you until you see results. Our goal is your success.</p>
+            </div>
+
+            <div style="background: #e8f5e8; padding: 30px; border-radius: 15px; margin: 40px 0; border-left: 5px solid #28a745; text-align: center;">
+                <h3 style="color: #155724; margin-bottom: 15px;">🚀 Ready to Invest in Your Success?</h3>
+                <p style="color: #155724; margin-bottom: 20px;">Our clients consistently achieve $100K-$180K in Year 1 revenue with our proven digital foundation approach. Let's build your success story together.</p>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <a href="contact.html" style="background: #28a745; color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold;">Get Free Consultation</a>
+                    <a href="portfolio.html" style="background: #667eea; color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold;">View Success Stories</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
