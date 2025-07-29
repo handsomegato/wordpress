@@ -1,0 +1,9 @@
+# WordPress Core Files
+/wp-config.php
+/wp-content/uploads/
+/wp-content/cache/
+/wp-content/advanced-cache.php
+
+# Plugin-specific ignores
+/wp-content/plugins/backuply/backups/
+/wp-content/plugins/zero-bs-crm/logs/
