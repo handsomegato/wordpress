@@ -1,4 +1,4 @@
-title: "Handsome Gato Foundation"
+title: "Handsome Gato Incorporated"
 description: "WordPress Development & Digital Marketing Excellence"
 url: "https://handsomegato.github.io"
 baseurl: "/wordpress"
@@ -32,10 +32,10 @@ plugins:
   - jekyll-seo-tag
 
 # SEO
-author: "Handsome Gato"
+author: "Handsome Gato Incorporated"
 twitter:
   username: handsomegato
 social:
-  name: Handsome Gato
+  name: Handsome Gato Incorporated
   links:
     - https://github.com/handsomegato

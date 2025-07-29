@@ -1,4 +1,4 @@
-# 🚀 PUBLISHED: Handsome Gato Foundation is Live!
+# 🚀 PUBLISHED: Handsome Gato Incorporated is Live!
 
 ## ✅ Successfully Published
 

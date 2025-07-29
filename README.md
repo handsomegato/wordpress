@@ -1,10 +1,10 @@
-# Handsome Gato WordPress Foundation
+# Handsome Gato Incorporated WordPress Foundation
 
-Welcome to the Handsome Gato WordPress repository. This repository contains the custom content and configuration for the handsomegato.com website.
+Welcome to the Handsome Gato Incorporated WordPress repository. This repository contains the custom content and configuration for the handsomegato.com website.
 
 ## 📋 Project Plan
 
-The comprehensive project plan for building Handsome Gato's foundation can be found in:
+The comprehensive project plan for building Handsome Gato Incorporated's foundation can be found in:
 **[HANDSOME_GATO_FOUNDATION_PROJECT_PLAN.md](./HANDSOME_GATO_FOUNDATION_PROJECT_PLAN.md)**
 
 This document outlines:
